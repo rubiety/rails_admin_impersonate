@@ -27,6 +27,7 @@ module RailsAdmin
 
         register_instance_option :controller do
           Proc.new do
+            request.env["devise.skip_trackable"] = true
             sign_in @object
             redirect_to "/"
           end
